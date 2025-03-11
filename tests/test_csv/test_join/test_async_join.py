@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 import logging
-from your_module import async_join  # Replace with the actual module name
+from data_py.csv.join import async_join
 
 class TestAsyncJoin(unittest.TestCase):
     def test_valid_input(self):

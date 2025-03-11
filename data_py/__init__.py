@@ -16,6 +16,12 @@ __all__ = [
     'group_and_merge',
     'group_and_filter',
     'group_and_transform',
+    'basic_join',
+    'conditional_join',
+    'index_join',
+    'multi_column_join',
+    'index_join',
+    'join_with_suffix',
     'read_images_from_folder',
     'read_image',
     'show_image',
@@ -25,5 +31,5 @@ __all__ = [
     'flip_images_in_folder',
     'grayscale_images_in_folder',
     'resize_images_in_folder',
-    'rotate_images_in_folder'
+    'rotate_images_in_folder',
 ]

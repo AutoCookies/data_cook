@@ -1,6 +1,7 @@
 from .split import *
 from .group import *
 from .merge import *
+from .join import *
 
 __all__ = [
     'data_split',
@@ -27,4 +28,10 @@ __all__ = [
     'merge_with_suffix',
     'async_merge',
     'conditional_merge',
+    'async_join',
+    'join_dataframes',
+    'join_on_condition',
+    'index_join',
+    'join_with_suffix',
+    'join_on_multiple_columns'
 ]

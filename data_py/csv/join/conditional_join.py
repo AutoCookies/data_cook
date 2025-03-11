@@ -1,22 +1,34 @@
 import pandas as pd
 import logging
 
-def conditional_join(df1: pd.DataFrame, df2: pd.DataFrame, condition):
+def join_on_condition(left: pd.DataFrame, right: pd.DataFrame, condition: pd.Series) -> pd.DataFrame:
     """
     Join two dataframes based on a condition.
 
     Args:
-        df1 (pd.DataFrame): The first dataframe.
-        df2 (pd.DataFrame): The second dataframe.
+        left (pd.DataFrame): The left dataframe.
+        right (pd.DataFrame): The right dataframe.
         condition (pd.Series): A boolean series representing the condition.
 
     Returns:
         pd.DataFrame: The joined dataframe.
     """
-    try:
-        if (df1 is None or df2 is None):
-            raise ValueError("Both dataframes must be provided.")
-        logging("Date joined")
-        return df1[condition].join(df2, how='inner')
-    except Exception as e:
-        logging.error(f"An error occurred while joining data: {str(e)}")
+    if left is None or right is None:
+        raise ValueError("Both dataframes must be provided.")
+    
+    if condition is None:
+        raise ValueError("Condition must be provided.")
+
+    if not isinstance(condition, pd.Series):
+        raise TypeError("Condition must be a pandas Series.")
+
+    if condition.empty:
+        raise ValueError("Condition cannot be empty.")
+
+    # Filter the left dataframe
+    filtered_left = left.loc[condition]
+
+    # Join with the right dataframe using the index
+    joined = filtered_left.join(right, how='inner')
+
+    return joined
