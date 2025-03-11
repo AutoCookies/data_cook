@@ -1,7 +1,7 @@
 import pandas as pd
 import logging
 
-def group_and_merge(df: pd.DataFrame, group_column, merge_column):
+def group_and_merge(df: pd.DataFrame, group_column: str or list, merge_column: str) -> pd.DataFrame:
     """
     Group the dataframe by a column and merge groups based on another column.
 
@@ -13,17 +13,13 @@ def group_and_merge(df: pd.DataFrame, group_column, merge_column):
     Returns:
         pd.DataFrame: A dataframe with merged groups.
     """
-    if (df is None) or (group_column is None) or (merge_column is None):
+    if df is None or group_column is None or merge_column is None:
         raise ValueError("df, group_column, and merge_column cannot be None")
-    
-    try:
-        grouped = df.groupby(group_column)
-        merged_groups = []
 
-        for _, group in grouped:
-            merged_group = group.merge(df, on=merge_column, how='left')
-            merged_groups.append(merged_group)
-        logging(f"Merged {len(df) - len(merged_groups)} groups out of {len(df)} groups.")
-        return pd.concat(merged_groups)
+    try:
+        grouped = df.groupby(group_column, as_index=False)
+        merged_groups = grouped.merge(df[[merge_column]], on=merge_column, how='left')
+        return merged_groups
     except Exception as e:
         logging.error(f"An error occurred while merging groups: {str(e)}")
+        raise

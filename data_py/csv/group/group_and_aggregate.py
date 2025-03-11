@@ -1,24 +1,23 @@
 import logging
 import pandas as pd
 
-def group_and_aggregate(df: pd.DataFrame, group_column, agg_dict):
+def group_and_aggregate(dataframe: pd.DataFrame, group_cols, aggregation_dict):
     """
-    Group the dataframe by a column and calculate aggregate statistics.
+    Group the dataframe by specified columns and perform aggregation.
 
     Args:
-        df (pd.DataFrame): The input dataframe.
-        group_column (str or list): The column(s) to group by.
-        agg_dict (dict): A dictionary specifying the aggregation operations for each column.
-                         Example: {'value': ['sum', 'mean'], 'count': 'max'}
+        dataframe (pd.DataFrame): The input dataframe.
+        group_cols (str or list): Column(s) to group by.
+        aggregation_dict (dict): Aggregation operations for each column.
+            Example: {'value': ['sum', 'mean'], 'count': 'max'}
 
     Returns:
-        pd.DataFrame: A dataframe with the grouped and aggregated results.
+        pd.DataFrame: Dataframe with grouped and aggregated results.
     """
-    if (df is None) or (group_column is None) or (agg_dict is None):
-        raise ValueError("df, group_column, and agg_dict cannot be None")
-    
+    if not dataframe or not group_cols or not aggregation_dict:
+        raise ValueError("dataframe, group_cols, and aggregation_dict cannot be None")
+
     try:
-        logging.info("Grouping and aggregating data...")
-        return df.groupby(group_column).agg(agg_dict)
-    except Exception as e:
-        logging.error(f"An error occurred while grouping and aggregating data: {str(e)}")
+        return dataframe.groupby(group_cols, sort=False).agg(aggregation_dict)
+    except Exception as error:
+        raise RuntimeError(f"Error during aggregation: {str(error)}")

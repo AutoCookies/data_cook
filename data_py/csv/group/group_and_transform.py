@@ -1,22 +1,40 @@
 import logging
 import pandas as pd
 
-def group_and_transform(df: pd.DataFrame, group_column, transform_column, transform_func):
+def group_and_transform_data(
+    data: pd.DataFrame, group_by_column: str, transform_column: str, transform_function
+) -> pd.DataFrame:
     """
     Group the dataframe by a column and apply a transformation to each group.
 
     Args:
-        df (pd.DataFrame): The input dataframe.
-        group_column (str or list): The column(s) to group by.
+        data (pd.DataFrame): The input dataframe.
+        group_by_column (str): The column to group by.
         transform_column (str): The column to apply the transformation to.
-        transform_func (function): The transformation function.
+        transform_function (function): The transformation function.
 
     Returns:
         pd.DataFrame: A dataframe with the transformed column.
     """
+    if data is None:
+        raise ValueError("data cannot be None")
+    if group_by_column is None:
+        raise ValueError("group_by_column cannot be None")
+    if transform_column is None:
+        raise ValueError("transform_column cannot be None")
+    if transform_function is None:
+        raise ValueError("transform_function cannot be None")
+
     try:
-        df[f'transformed_{transform_column}'] = df.groupby(group_column)[transform_column].transform(transform_func)
-        logging("All groups transformed")
-        return df
-    except Exception as e:
-        logging.error(f"An error occurred while grouping and transforming data: {str(e)}")
+        # Apply the transformation function directly using groupby and transform
+        if transform_column not in data.columns:
+            raise ValueError(
+                f"transform_column '{transform_column}' does not exist in the dataframe"
+            )
+        data[f"{transform_column}_transformed"] = data.groupby(group_by_column)[
+            transform_column
+        ].transform(transform_function)
+        return data
+    except Exception as error:
+        logging.error(f"Error during grouping and transformation: {str(error)}")
+        raise

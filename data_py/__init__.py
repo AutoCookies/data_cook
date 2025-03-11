@@ -18,5 +18,12 @@ __all__ = [
     'group_and_transform',
     'read_images_from_folder',
     'read_image',
-    'show_image'
+    'show_image',
+    'show_number_of_images',
+    'blur_images_in_folder',
+    'crop_images_in_folder',
+    'flip_images_in_folder',
+    'grayscale_images_in_folder',
+    'resize_images_in_folder',
+    'rotate_images_in_folder'
 ]

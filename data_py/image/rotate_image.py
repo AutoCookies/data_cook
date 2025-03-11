@@ -17,7 +17,7 @@ def rotate_image(image, angle, center=None, scale=1.0):
 
     return rotated
 
-def rotate_folder_of_images(folder_path, angle, center=None, scale=1.0):
+def rotate_images_in_folder(folder_path, angle, center=None, scale=1.0):
     for filename in os.listdir(folder_path):
         file_path = os.path.join(folder_path, filename)
         image = cv2.imread(file_path)
