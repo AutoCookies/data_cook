@@ -1,4 +1,7 @@
-def basic_join(df1, df2, on_column, how='inner'):
+import pandas as pd
+import logging
+
+def basic_join(df1: pd.DataFrame, df2: pd.DataFrame, on_column, how='inner'):
     """
     Join two dataframes based on a common column.
 
@@ -11,4 +14,10 @@ def basic_join(df1, df2, on_column, how='inner'):
     Returns:
         pd.DataFrame: The joined dataframe.
     """
-    return df1.join(df2.set_index(on_column), on=on_column, how=how)
+    try:
+        if (df1 is None or df2 is None):
+            raise ValueError("Both dataframes must be provided.")
+        logging("Date joined")
+        return df1.join(df2.set_index(on_column), on=on_column, how=how)
+    except Exception as e:
+        logging.error(f"An error occurred while joining data: {str(e)}")

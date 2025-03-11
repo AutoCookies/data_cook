@@ -1,7 +1,8 @@
 import pandas as pd
 import os
+import logging
 
-def data_group(df, group_column, is_save=False, output_dir='.'):
+def data_group(df: pd.DataFrame, group_column, is_save=False, output_dir='.'):
     """
     Group the dataset by a specific column and optionally save each group to a separate CSV file.
 
@@ -14,22 +15,30 @@ def data_group(df, group_column, is_save=False, output_dir='.'):
     Returns:
         dict: A dictionary where keys are the unique values in the group column, and values are the corresponding dataframes.
     """
-    # Group the dataframe by the specified column
-    grouped = df.groupby(group_column)
+    if (df is None) or (group_column is None):
+        raise ValueError("df and group_column cannot be None")
+    
+    try:
+        # Group the dataframe by the specified column
+        grouped = df.groupby(group_column)
 
-    # Create a dictionary to store the groups
-    groups_dict = {key: group for key, group in grouped}
+        # Create a dictionary to store the groups
+        groups_dict = {key: group for key, group in grouped}
 
-    # Save each group to a CSV file if is_save is True
-    if is_save:
-        # Create the output directory if it doesn't exist
-        os.makedirs(output_dir, exist_ok=True)
+        # Save each group to a CSV file if is_save is True
+        if is_save:
+            # Create the output directory if it doesn't exist
+            os.makedirs(output_dir, exist_ok=True)
 
-        # Save each group to a separate CSV file
-        for key, group in groups_dict.items():
-            filename = f"{group_column}_{key}.csv"
-            filepath = os.path.join(output_dir, filename)
-            group.to_csv(filepath, index=False)
-            print(f"Saved group '{key}' to {filepath}")
+            # Save each group to a separate CSV file
+            for key, group in groups_dict.items():
+                filename = f"{group_column}_{key}.csv"
+                filepath = os.path.join(output_dir, filename)
+                group.to_csv(filepath, index=False)
+                print(f"Saved group '{key}' to {filepath}")
 
-    return groups_dict
+        logging(f"Number of groups: {len(groups_dict)}")
+        return groups_dict
+    
+    except Exception as e:
+        logging.error(f"An error occurred while grouping data: {str(e)}")

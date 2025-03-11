@@ -1,4 +1,5 @@
 from .csv import *
+from image import *
 
 __all__ = [
     'data_split',
@@ -14,5 +15,8 @@ __all__ = [
     'group_and_split',
     'group_and_merge',
     'group_and_filter',
-    'group_and_transform'
+    'group_and_transform',
+    'read_images_from_folder',
+    'read_image',
+    'show_image'
 ]

@@ -1,4 +1,7 @@
-def group_and_rank(df, group_column, rank_column, ascending=True):
+import logging
+import pandas as pd
+
+def group_and_rank(df: pd.DataFrame, group_column, rank_column, ascending=True):
     """
     Group the dataframe by a column and rank rows within each group.
 
@@ -11,5 +14,9 @@ def group_and_rank(df, group_column, rank_column, ascending=True):
     Returns:
         pd.DataFrame: A dataframe with an additional 'rank' column.
     """
-    df['rank'] = df.groupby(group_column)[rank_column].rank(ascending=ascending, method='min')
-    return df
+    try:
+        df['rank'] = df.groupby(group_column)[rank_column].rank(ascending=ascending, method='min')
+        logging.info("Data grouped")
+        return df
+    except Exception as e:
+        logging.error(f"An error occurred while grouping and ranking data: {str(e)}")
