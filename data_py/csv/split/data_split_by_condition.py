@@ -4,17 +4,34 @@ def data_split_by_condition(df, condition, is_save=False, output_dir='.'):
     """
     Split the dataset into two subsets based on a condition.
 
-    Args:
-        df (pd.DataFrame): The input dataframe to be split.
-        condition (pd.Series): A boolean series representing the condition.
-        is_save (bool, optional): Whether to save the splits to CSV files. Defaults to False.
-        output_dir (str, optional): The directory to save the output files. Defaults to '.'.
+    This function can be used to split the dataset into training and testing sets, 
+    or into subsets for further analysis. The condition is a boolean series 
+    and can be used to filter the dataframe.
 
-    Returns:
-        tuple: A tuple containing the two subsets (df_true, df_false).
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The input dataframe to be split.
+    condition : pd.Series
+        A boolean series representing the condition.
+    is_save : bool, optional
+        Whether to save the splits to CSV files. Defaults to False.
+    output_dir : str, optional
+        The directory to save the output files. Defaults to '.'.
+
+    Returns
+    -------
+    tuple
+        A tuple containing the two subsets (df_true, df_false).
     """
-    df_true = df[condition]
-    df_false = df[~condition]
+    if df is None:
+        raise ValueError('Input dataframe is None.')
+    if condition is None:
+        raise ValueError('Input condition is None.')
+    if len(df) != len(condition):
+        raise ValueError('Length of input dataframe and condition do not match.')
+
+    df_true, df_false = df[condition], df[~condition]
 
     # Save to CSV if required
     if is_save:

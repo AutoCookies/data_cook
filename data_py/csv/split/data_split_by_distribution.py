@@ -22,26 +22,28 @@ def data_split_by_distribution(df, target_column, train_size=0.7, test_size=0.3,
     if random_state is not None:
         np.random.seed(random_state)
 
-    # Group by the target column to preserve distribution
-    grouped = df.groupby(target_column)
+    # Split the dataframe into groups
+    groups = df.groupby(target_column)
+
+    # Calculate the number of samples for each split
+    train_samples = int(train_size * len(df))
+    test_samples = int(test_size * len(df))
+    validation_samples = int(validation_size * len(df)) if validation_size is not None else 0
 
     # Initialize empty dataframes for splits
     train, test, validation = pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
 
-    for _, group in grouped:
-        # Shuffle the group
-        group = group.sample(frac=1).reset_index(drop=True)
+    for name, group in groups:
+        # Calculate the number of samples for each group
+        group_train_samples = int(train_size * len(group))
+        group_test_samples = int(test_size * len(group))
+        group_validation_samples = int(validation_size * len(group)) if validation_size is not None else 0
 
-        # Calculate sizes for each split
-        train_end = int(train_size * len(group))
+        # Append the samples to the splits
+        train = pd.concat([train, group.sample(n=group_train_samples, replace=False)])
+        test = pd.concat([test, group.sample(n=group_test_samples, replace=False)])
         if validation_size is not None:
-            validation_end = train_end + int(validation_size * len(group))
-            train = pd.concat([train, group[:train_end]])
-            validation = pd.concat([validation, group[train_end:validation_end]])
-            test = pd.concat([test, group[validation_end:]])
-        else:
-            train = pd.concat([train, group[:train_end]])
-            test = pd.concat([test, group[train_end:]])
+            validation = pd.concat([validation, group.sample(n=group_validation_samples, replace=False)])
 
     # Save to CSV if required
     if is_save:
@@ -53,4 +55,4 @@ def data_split_by_distribution(df, target_column, train_size=0.7, test_size=0.3,
 
     # Return splits
     if validation_size is not None:
-        return train, test
+        return train, test, validation
