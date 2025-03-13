@@ -10,6 +10,8 @@ from .width_shift import *
 from .height_shift import *
 from crop_image import *
 from .adjust_brightness import *
+from .box_axis_flip import *
+from .vertical_flip_image import *
 
 
 __all__ = [
@@ -24,6 +26,7 @@ __all__ = [
     'shift_image',
     'height_shift_image',
     'crop_image',
+    'vertical_flip',
     'blur_images_in_folder',
     'crop_images_in_folder',
     'horizontal_flip_folder',
@@ -36,5 +39,8 @@ __all__ = [
     'height_shift_folder',
     'shift_images_in_folder',
     'adjust_brightness',
-    'adjust_brightness_folder'
+    'adjust_brightness_folder',
+    'both_axes_flip',
+    'both_axes_flip_folder',
+    'vertical_flip_folder'
 ]
