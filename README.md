@@ -1,9 +1,12 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # data_py
  
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -61,6 +64,10 @@ Contributions are welcome! Please follow these steps:
 ## License
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+>>>>>>> Stashed changes
+=======
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 >>>>>>> Stashed changes
 =======
