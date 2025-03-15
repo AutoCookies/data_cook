@@ -1,5 +1,6 @@
 from .csv import *
 from image import *
+from video import *
 
 __all__ = [
     'data_split',
@@ -35,6 +36,10 @@ __all__ = [
     'crop_image',
     'both_axes_flip',
     'vertical_flip',
+    'extract_scene_changes',
+    'extract_frames',
+    'extract_frames_from_folder',
+    'extract_key_frames',
     'blur_images_in_folder',
     'crop_images_in_folder',
     'horizontal_flip_folder',

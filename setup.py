@@ -8,7 +8,7 @@ setup(
     description='An data handle library',  # Mô tả ngắn
     long_description=open('README.md').read(),  # Mô tả dài (đọc từ README.md)
     long_description_content_type='text/markdown',  # Định dạng của mô tả dài
-    url='https://github.com/yourusername/my_library',  # URL repository
+    url='https://github.com/AutoCookies/data_py',  # URL repository
     packages=find_packages(),  # Tự động tìm các package
     install_requires=[],  # Các dependencies (ví dụ: ['numpy', 'pandas'])
     classifiers=[
