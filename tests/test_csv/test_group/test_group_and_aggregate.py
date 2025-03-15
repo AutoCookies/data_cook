@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from data_py.csv.group.group_and_aggregate import group_and_aggregate
+from data_cook import group_and_aggregate
 
 class TestGroupAndAggregate(unittest.TestCase):
     def test_valid_input(self):

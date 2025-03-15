@@ -1,5 +1,4 @@
 import pandas as pd
-import logging
 
 def join_on_condition(left: pd.DataFrame, right: pd.DataFrame, condition: pd.Series) -> pd.DataFrame:
     """

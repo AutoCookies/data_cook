@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='data_cook',  # Tên thư viện
-    version='0.1.0',    # Phiên bản
+    version='0.2.0',    # Phiên bản
     author='Cookiescooker', # Tên tác giả
     author_email='vanhaminhquan2406@gmail.com',  # Email
     description='An data handle library',  # Mô tả ngắn

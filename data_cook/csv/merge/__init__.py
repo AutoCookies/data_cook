@@ -17,5 +17,5 @@ __all__ = [
     'merge_by_condition_and_group',
     'merge_by_group_and_condition',
     'merge_by_group',
-    'basic_merge'
+    'basic_merge',
 ]
