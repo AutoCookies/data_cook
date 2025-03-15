@@ -1,7 +1,10 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # data_py
  
 =======
+=======
+>>>>>>> Stashed changes
 # data_cook
 
 data_cook is a library that helps you accelerate the data preprocessing process efficiently and easily. The library provides powerful tools for manipulating, cleaning, and normalizing data, saving time and improving workflow efficiency.
@@ -53,5 +56,9 @@ Contributions are welcome! Please follow these steps:
 5. Open a pull request
 
 ## License
+<<<<<<< Updated upstream
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+>>>>>>> Stashed changes
+=======
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 >>>>>>> Stashed changes
