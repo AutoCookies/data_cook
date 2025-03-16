@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from data_cook.csv.group.group_and_rank import group_and_rank
+from data_cook.csv_cook.group.group_and_rank import group_and_rank
 
 class TestGroupAndRank(unittest.TestCase):
 

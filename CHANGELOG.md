@@ -2,7 +2,7 @@
 
 ## [0.1.0] - 2025-03-15
 ### Added
-- Initial release of `data_cook` 🚀
+- Initial release of `data_cook`
 - Support for CSV and DataFrame processing
 - Smart merging methods for data manipulation
 - Image and video preprocessing features:

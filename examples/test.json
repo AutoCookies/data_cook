@@ -1,0 +1,68 @@
+{
+  "company": "Tech Solutions Inc.",
+  "departments": [
+      {
+          "department_name": "Software Development",
+          "manager": "Alice Johnson",
+          "employees": [
+              {
+                  "emp_id": 101,
+                  "emp_name": "Shubham",
+                  "email": "ksingh.shubh@gmail.com",
+                  "job_profile": "Intern",
+                  "projects": [
+                      {
+                          "project_id": "P1001",
+                          "project_name": "AI Chatbot",
+                          "status": "Ongoing",
+                          "tasks": [
+                              {"task_id": "T1", "task_name": "Data Collection", "deadline": "2025-04-01"},
+                              {"task_id": "T2", "task_name": "Model Training", "deadline": "2025-05-10"}
+                          ]
+                      }
+                  ]
+              },
+              {
+                  "emp_id": 102,
+                  "emp_name": "Gaurav",
+                  "email": "gaurav.singh@gmail.com",
+                  "job_profile": "Developer",
+                  "projects": [
+                      {
+                          "project_id": "P1002",
+                          "project_name": "E-Commerce Platform",
+                          "status": "Completed",
+                          "tasks": [
+                              {"task_id": "T3", "task_name": "UI Design", "deadline": "2024-12-15"},
+                              {"task_id": "T4", "task_name": "Backend API", "deadline": "2025-01-20"}
+                          ]
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "department_name": "Cyber Security",
+          "manager": "David Smith",
+          "employees": [
+              {
+                  "emp_id": 103,
+                  "emp_name": "Nikhil",
+                  "email": "nikhil@geeksforgeeks.org",
+                  "job_profile": "Security Analyst",
+                  "projects": [
+                      {
+                          "project_id": "P1003",
+                          "project_name": "Network Intrusion Detection",
+                          "status": "Ongoing",
+                          "tasks": [
+                              {"task_id": "T5", "task_name": "Threat Analysis", "deadline": "2025-06-30"},
+                              {"task_id": "T6", "task_name": "System Hardening", "deadline": "2025-07-15"}
+                          ]
+                      }
+                  ]
+              }
+          ]
+      }
+  ]
+}

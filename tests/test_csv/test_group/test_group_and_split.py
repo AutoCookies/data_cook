@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from data_cook.csv.group.group_and_split import group_and_split
+from data_cook.csv_cook.group.group_and_split import group_and_split
 
 class TestGroupAndSplit(unittest.TestCase):
 

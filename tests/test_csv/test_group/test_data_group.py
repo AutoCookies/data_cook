@@ -2,7 +2,7 @@ import unittest
 import pandas as pd
 import os
 import shutil
-from data_cook.csv.group.data_group import data_group
+from data_cook import data_group
 
 class TestDataGroup(unittest.TestCase):
 
