@@ -15,8 +15,7 @@ def merge_by_group_and_condition(df1, df2, group_column, condition_column, condi
     Returns:
         pd.DataFrame: The merged dataframe.
     """
-    # Ghép dữ liệu theo nhóm
+    
     merged = pd.merge(df1, df2, on=group_column, how=how)
     
-    # Áp dụng điều kiện sau khi ghép
     return merged[merged[condition_column] == condition_value]
