@@ -65,5 +65,5 @@ __all__ = [
     'merge_by_group_and_condition',
     'merge_by_group',
     'basic_merge',
-    "json_basic_group"
+    "JSONExtractor"
 ]
