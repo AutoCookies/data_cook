@@ -1,5 +1,4 @@
 {
-    "company": "Tech Solutions Inc.",
     "departments": [
         {
             "department_name": "Software Development",
@@ -87,6 +86,97 @@
                     ]
                 }
             ]
+        },
+        {
+            "department_name": "Artificial Intelligence",
+            "manager": "Sophia Lee",
+            "employees": [
+                {
+                    "emp_id": 201,
+                    "emp_name": "Rahul",
+                    "email": "rahul.ai@gmail.com",
+                    "job_profile": "Research Intern",
+                    "projects": [
+                        {
+                            "project_id": "P2001",
+                            "project_name": "Voice Assistant",
+                            "status": "In Progress",
+                            "tasks": [
+                                {
+                                    "task_id": "T7",
+                                    "task_name": "Data Preprocessing",
+                                    "deadline": "2025-05-15"
+                                },
+                                {
+                                    "task_id": "T8",
+                                    "task_name": "Model Deployment",
+                                    "deadline": "2025-06-20"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "emp_id": 202,
+                    "emp_name": "Anjali",
+                    "email": "anjali.dev@gmail.com",
+                    "job_profile": "Machine Learning Engineer",
+                    "projects": [
+                        {
+                            "project_id": "P2002",
+                            "project_name": "Recommendation System",
+                            "status": "Completed",
+                            "tasks": [
+                                {
+                                    "task_id": "T9",
+                                    "task_name": "Feature Engineering",
+                                    "deadline": "2024-11-10"
+                                },
+                                {
+                                    "task_id": "T10",
+                                    "task_name": "Model Evaluation",
+                                    "deadline": "2024-12-05"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "department_name": "Cloud Security",
+            "manager": "Michael Brown",
+            "employees": [
+                {
+                    "emp_id": 203,
+                    "emp_name": "Rohan",
+                    "email": "rohan@securityhub.com",
+                    "job_profile": "Cloud Security Specialist",
+                    "projects": [
+                        {
+                            "project_id": "P2003",
+                            "project_name": "Cloud Data Protection",
+                            "status": "Ongoing",
+                            "tasks": [
+                                {
+                                    "task_id": "T11",
+                                    "task_name": "Encryption Strategy",
+                                    "deadline": "2025-07-30"
+                                },
+                                {
+                                    "task_id": "T12",
+                                    "task_name": "Access Control Implementation",
+                                    "deadline": "2025-08-15"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
+    ],
+    "company": [
+        "Tech Solutions Inc.",
+        "NextGen Solutions LLC."
     ]
 }

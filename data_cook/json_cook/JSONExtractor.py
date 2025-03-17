@@ -21,9 +21,13 @@ class JSONExtractor:
         self.keys_by_level = defaultdict(set)
         self.all_keys = set()
         self.key_value = defaultdict(list)
-
+        self.combined_json = None
         if json_path:
             self.read_json()
+            self.extract_keys_level()
+
+    def combine_json (self, json2):
+        self.combined_json = combine_json(self.data, json2)
 
     def read_json(self):
         """Đọc file JSON và lưu vào self.data."""

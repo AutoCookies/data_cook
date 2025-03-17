@@ -8,6 +8,6 @@ extractor1 = JSONExtractor(json_path1)
 extractor2 = JSONExtractor(json_path2)
 
 json2 = extractor2.get_json()
-extractor1.combine_json(json2, extractor1.combined_json)
+extractor1.combine_json(json2)
 
 extractor1.save_json("./combined_json.json")
