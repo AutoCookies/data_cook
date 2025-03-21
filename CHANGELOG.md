@@ -21,4 +21,18 @@
 
 ---
 
+## [0.2.0] - 2025-03-21
+### Added
+- Support for JSON processing:
+  - Combine two JSON files
+  - Drop a list of keys from JSON
+  - Join two JSON files with merge options (left, right, inner, outer)
+
+### Fixed
+- Improved handling of missing keys in JSON operations
+
+### Changed
+- Optimized JSON merging performance
+- Enhanced error handling for invalid JSON inputs
+
 _Note: Future updates will be logged here._

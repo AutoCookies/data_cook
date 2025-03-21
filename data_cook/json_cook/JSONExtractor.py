@@ -2,7 +2,7 @@ import json
 import logging
 import os
 from collections import defaultdict
-from .utils import combine_json  # Đảm bảo combine_json được import từ utils.py
+from .utils import combine_json, drop_keys, join_json
 
 logging.basicConfig(level=logging.ERROR)
 
@@ -125,3 +125,9 @@ class JSONExtractor:
             print(f"Dữ liệu JSON đã được lưu vào {out_dir}")
         except Exception as e:
             print(f"Lỗi khi lưu file JSON: {e}")
+
+    def drop_key(self, key):
+        return drop_keys(self.data, key)
+    
+    def join_json (self, json2, method = 'outer'):
+        return join_json(self.data, json2, method)
